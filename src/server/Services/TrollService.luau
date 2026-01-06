@@ -12,13 +12,13 @@ local TrollService = Knit.CreateService({Name = "TrollService",
 local LastScareRequest = {} --[Flinger] = flingeeToBe 
 
 function TrollService:KnitInit()
-    self.LinkService = Knit.GetService("LinkService")
+    --[[self.LinkService = Knit.GetService("LinkService")
     self.ChatService = Knit.GetService("ChatService")
 
     self.Client.RequestScare:Connect(function(player: Player, targetPlayer: Player)
         LastScareRequest[player] = targetPlayer
         ProductUtil.PromptPurchase(player, "Jumpscare Player")
-    end)
+    end)]]
 end
 
 function TrollService:FlingPlayer(player: Player)

@@ -31,9 +31,7 @@ function SoundtrackController:KnitStart()
 	soundObj.Parent = SoundService
 	soundObj.Volume = VOLUME
 
-	print'gi'
 	if TEST_CONFIGS.Is("SOUNDTRACK_OFF") then
-		print'its off'
 		return
 	end
 

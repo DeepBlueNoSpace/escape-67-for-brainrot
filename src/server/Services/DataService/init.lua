@@ -1,4 +1,5 @@
 ----- Modules -----
+require(script.ReplicaInjection)
 
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local Knit = require(ReplicatedStorage.Packages.Knit)
@@ -200,10 +201,15 @@ function DataService:HandleLeaderstats(player)
 	local leaderstats = Instance.new("Model")
 	leaderstats.Name = "leaderstats"
 
-	local Stage = Instance.new("NumberValue")
-	Stage.Name = "Stage"
-	Stage.Value = 0
-	Stage.Parent = leaderstats
+	local Cash = Instance.new("NumberValue")
+	Cash.Name = "Cash"
+	Cash.Value = replica.Data.Cash
+	Cash.Parent = leaderstats
+
+
+	replica:ListenToChange("Cash", function()
+		Cash.Value = replica.Data.Cash
+	end)
 
 	leaderstats.Parent = player
 end

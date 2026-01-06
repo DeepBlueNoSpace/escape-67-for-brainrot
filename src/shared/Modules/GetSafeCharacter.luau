@@ -1,4 +1,8 @@
-local function GetSafeCharacter(player): Model?
+local function GetSafeCharacter(player: Player?): Model?
+	if not player then 
+		player = game.Players.LocalPlayer 
+	end
+
 	local character = player.Character
 	if not character then
 		return
